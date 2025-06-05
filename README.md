@@ -67,4 +67,3 @@ Traditional frontend frameworks leave too much to interpretation. Pi provides:
 - **Integrated Routing**: No manual wiring between routes and data
 
 Perfect for teams using AI-assisted development workflows.
-
