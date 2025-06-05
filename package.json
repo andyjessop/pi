@@ -4,14 +4,27 @@
 	"type": "module",
 	"scripts": {
 		"cli:start": "bun run --cwd apps/cli start",
-		"pi:test": "bun run --cwd packages/pi test"
+		"pi:test": "bun run --cwd packages/pi test",
+		"client:dev": "bun run --cwd apps/client dev",
+		"client:build": "bun run --cwd apps/client build"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.8.2",
-		"@types/bun": "^1.1.5"
+		"@types/bun": "^1.1.5",
+		"@tailwindcss/vite": "^4.1.8",
+		"@types/react": "^19.1.2",
+		"@types/react-dom": "^19.1.2",
+		"@vitejs/plugin-react": "^4.4.1",
+		"globals": "^16.0.0",
+		"typescript": "~5.8.3",
+		"vite": "^6.3.5"
 	},
 	"workspaces": ["apps/*", "packages/*"],
 	"dependencies": {
-		"@reduxjs/toolkit": "^2.8.2"
+		"@reduxjs/toolkit": "^2.8.2",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"react-redux": "^9.2.0",
+		"tailwindcss": "^4.1.8"
 	}
 }

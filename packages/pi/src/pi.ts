@@ -59,7 +59,8 @@ export class Pi<TModules extends PiModules = PiModules> {
 
 		// Initialize router if routes are provided
 		if (this.config.routes) {
-			this.store.dispatch(initRouter(this.config.routes));
+			// Cast thunk for TypeScript - RTK pattern
+			this.store.dispatch(initRouter(this.config.routes) as any);
 		}
 
 		return this.store as PiStore<

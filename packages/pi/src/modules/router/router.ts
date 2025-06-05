@@ -1,8 +1,8 @@
 import {
 	createSlice,
 	type PayloadAction,
-	type ThunkAction,
 } from "@reduxjs/toolkit";
+import type { PiThunkAction } from "../../types";
 
 //
 // ====== Type definitions ======
@@ -203,11 +203,9 @@ function getGlobalRouterConfig<T extends RouterConfig>(): T & {
 // ====== Thunks for navigation ======
 //
 
-type RouterThunk<T extends RouterConfig> = ThunkAction<
+type RouterThunk<T extends RouterConfig> = PiThunkAction<
 	void,
-	{ router: RouterState<T> } & Record<string, any>,
-	unknown,
-	PayloadAction<any>
+	{ router: RouterState<T> } & Record<string, any>
 >;
 
 let popstateListener: ((this: Window, ev: PopStateEvent) => any) | null = null;

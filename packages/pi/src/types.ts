@@ -1,4 +1,4 @@
-import type { Reducer, Middleware, ThunkDispatch, UnknownAction, EnhancedStore } from "@reduxjs/toolkit";
+import type { Reducer, Middleware, EnhancedStore, ThunkAction, UnknownAction } from "@reduxjs/toolkit";
 
 //
 // ====== Core Module Interface ======
@@ -30,10 +30,13 @@ export type InferStoreState<TModules extends PiModules> = {
   [K in keyof TModules]: TModules[K] extends PiModule<infer TState> ? TState : never;
 };
 
-// Enhanced store dispatch type that supports thunks
-export type PiDispatch<TState = any> = ThunkDispatch<TState, unknown, UnknownAction>;
+// Enhanced store type for Pi framework
+export type PiStore<TState = any> = EnhancedStore<TState>;
 
-// Enhanced store type that includes thunk dispatch
-export type PiStore<TState = any> = EnhancedStore<TState> & {
-  dispatch: PiDispatch<TState>;
-};
+// Thunk action type for Pi framework
+export type PiThunkAction<TReturnType = void, TState = any> = ThunkAction<
+  TReturnType,
+  TState,
+  unknown,
+  UnknownAction
+>;
