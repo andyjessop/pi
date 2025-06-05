@@ -1,0 +1,17 @@
+{
+	"name": "bun-playground",
+	"license": "ISC",
+	"type": "module",
+	"scripts": {
+		"cli:start": "bun run --cwd apps/cli start",
+		"pi:test": "bun run --cwd packages/pi test"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.8.2",
+		"@types/bun": "^1.1.5"
+	},
+	"workspaces": ["apps/*", "packages/*"],
+	"dependencies": {
+		"@reduxjs/toolkit": "^2.8.2"
+	}
+}
