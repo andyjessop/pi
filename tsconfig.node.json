@@ -5,11 +5,6 @@
     "types": ["vite/client"],
     "skipLibCheck": true
   },
-  "include": [
-    "apps/client/vite.config.ts"
-  ],
-  "exclude": [
-    "**/*.test.ts",
-    "**/*.test.tsx"
-  ]
+  "include": ["apps/client/vite.config.ts", "apps/cli/src/**/*.ts"],
+  "exclude": ["**/*.test.ts", "**/*.test.tsx"]
 }

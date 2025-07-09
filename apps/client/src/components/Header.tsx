@@ -53,6 +53,17 @@ export function Header({ currentRoute }: HeaderProps) {
               >
                 Products
               </button>
+              
+              <button
+                onClick={() => handleNavigation("admin")}
+                className={`px-4 py-2 text-sm font-medium transition-colors ${
+                  currentRoute === "admin"
+                    ? "text-blue-600 bg-blue-50"
+                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                }`}
+              >
+                Admin
+              </button>
             </nav>
           </div>
         </div>

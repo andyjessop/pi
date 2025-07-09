@@ -5,6 +5,7 @@ import { Container as HomeContainer } from "./modules/home";
 import { Container as AboutContainer } from "./modules/about";
 import { Container as ProductsContainer } from "./modules/products";
 import { Container as ProductContainer } from "./modules/product";
+import { Container as AdminContainer } from "./modules/admin";
 
 function App() {
 	// Use typed Redux selector - pure presentation layer
@@ -21,6 +22,8 @@ function App() {
 				return <ProductsContainer />;
 			case "product":
 				return <ProductContainer />;
+			case "admin":
+				return <AdminContainer />;
 			default:
 				return <HomeContainer />; // Default fallback
 		}

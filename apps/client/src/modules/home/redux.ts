@@ -41,4 +41,4 @@ export const middleware = () => (next: any) => (action: any) => {
 };
 
 // Module export for Pi framework
-export const module = createModule(reducer, [middleware]);
+export const module = createModule("home", reducer, [middleware]);

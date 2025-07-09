@@ -5,6 +5,7 @@ import type { Reducer, Middleware, EnhancedStore, ThunkAction, UnknownAction } f
 //
 
 export interface PiModule<TState = any> {
+  key: string;
   reducer: Reducer<TState>;
   middleware?: Middleware[];
 }

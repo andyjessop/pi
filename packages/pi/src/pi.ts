@@ -117,10 +117,12 @@ export function createPi<TModules extends PiModules>(
 //
 
 export function createModule<TState>(
+	key: string,
 	reducer: PiModule<TState>["reducer"],
 	middleware: PiModule<TState>["middleware"] = [],
 ): PiModule<TState> {
 	return {
+		key,
 		reducer,
 		middleware,
 	};

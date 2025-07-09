@@ -1,8 +1,15 @@
 import { useAppSelector, useAppDispatch } from "../../hooks";
 import { navigateTo } from "pi";
 import { selectors } from "./redux";
-import { formatPrice } from "../products-shared";
 import type { Product } from "./redux";
+
+// Format price utility function
+function formatPrice(price: number): string {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(price);
+}
 
 // Product Details Component
 function ProductDetails({ product }: { product: Product }) {

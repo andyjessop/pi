@@ -1,8 +1,8 @@
-import { createSlice, type PayloadAction, type Middleware } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, type Middleware } from "@reduxjs/toolkit";
 import { createModule } from "pi";
 import { selectRouteName, selectRouteParams } from "pi";
 import type { RootState } from "../../store";
-import { type Product, findProductById } from "../products-shared";
+import { type Product, productClient } from "../products";
 
 // Types
 export interface ProductState {
@@ -13,7 +13,7 @@ export interface ProductState {
 }
 
 // Re-export shared types
-export type { Product } from "../products-shared";
+export type { Product } from "../products";
 
 // Initial state - null until route is activated
 const initialState: ProductState = {
@@ -23,28 +23,24 @@ const initialState: ProductState = {
   productId: null,
 };
 
+// Async thunks
+export const loadProduct = createAsyncThunk(
+  "product/loadProduct",
+  async (productId: string, { rejectWithValue }) => {
+    try {
+      const product = await productClient.getOne(productId);
+      return { product, productId };
+    } catch (error) {
+      return rejectWithValue(error instanceof Error ? error.message : "Failed to load product");
+    }
+  }
+);
+
 // Slice
 const productSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
-    initializeProduct: (state, action: PayloadAction<string>) => {
-      state.loading = true;
-      state.error = null;
-      state.productId = action.payload;
-    },
-    
-    setProduct: (state, action: PayloadAction<Product>) => {
-      state.product = action.payload;
-      state.loading = false;
-      state.error = null;
-    },
-    
-    setError: (state, action: PayloadAction<string>) => {
-      state.error = action.payload;
-      state.loading = false;
-    },
-    
     clearProduct: (state) => {
       state.product = null;
       state.loading = false;
@@ -52,10 +48,29 @@ const productSlice = createSlice({
       state.productId = null;
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(loadProduct.pending, (state, action) => {
+        state.loading = true;
+        state.error = null;
+        state.productId = action.meta.arg; // Store the productId being loaded
+      })
+      .addCase(loadProduct.fulfilled, (state, action) => {
+        state.product = action.payload.product;
+        state.productId = action.payload.productId;
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(loadProduct.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload as string;
+        // Keep productId to show which product failed to load
+      });
+  },
 });
 
 // Actions
-const { initializeProduct, setProduct, setError, clearProduct } = productSlice.actions;
+const { clearProduct } = productSlice.actions;
 
 // Reducer
 export const reducer = productSlice.reducer;
@@ -80,19 +95,9 @@ export const middleware: Middleware = (store) => (next) => (action) => {
     const currentRoute = selectRouteName(state);
     const routeParams = selectRouteParams(state);
     
-    // Initialize product when navigating to product route
+    // Load product when navigating to product route
     if (currentRoute === "product" && routeParams?.id) {
-      store.dispatch(initializeProduct(routeParams.id));
-      
-      // Simulate API call
-      setTimeout(() => {
-        const product = findProductById(routeParams.id);
-        if (product) {
-          store.dispatch(setProduct(product));
-        } else {
-          store.dispatch(setError(`Product with ID ${routeParams.id} not found`));
-        }
-      }, 300);
+      (store.dispatch as any)(loadProduct(routeParams.id));
     }
     
     // Clear product when navigating away
@@ -104,5 +109,5 @@ export const middleware: Middleware = (store) => (next) => (action) => {
   return result;
 };
 
-// Module export for Pi framework
-export const module = createModule(reducer, [middleware]);
+// Module export for Pi framework - no URL sync needed since product ID comes from route params
+export const module = createModule("product", reducer, [middleware]);

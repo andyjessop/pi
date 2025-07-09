@@ -3,6 +3,7 @@ import { module as homeModule } from "./modules/home";
 import { module as aboutModule } from "./modules/about";
 import { module as productsModule } from "./modules/products";
 import { module as productModule } from "./modules/product";
+import { module as adminModule } from "./modules/admin";
 
 // Define routes with clean paths
 const routes = createRoutes({
@@ -10,6 +11,7 @@ const routes = createRoutes({
   about: { path: "/about" },
   products: { path: "/products" },
   product: { path: "/products/:id" },
+  admin: { path: "/admin" },
 });
 
 // Create Pi app with modules and routes
@@ -19,6 +21,7 @@ export const app = createPi({
     about: aboutModule,
     products: productsModule,
     product: productModule,
+    admin: adminModule,
   },
   routes,
 });

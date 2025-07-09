@@ -16,15 +16,18 @@
 		"@types/react-dom": "^19.1.2",
 		"@vitejs/plugin-react": "^4.4.1",
 		"globals": "^16.0.0",
-		"typescript": "~5.8.3",
+		"typescript": "^5.8.3",
 		"vite": "^6.3.5"
 	},
 	"workspaces": ["apps/*", "packages/*"],
 	"dependencies": {
 		"@reduxjs/toolkit": "^2.8.2",
+		"commander": "^14.0.0",
+		"glob": "^11.0.2",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
 		"react-redux": "^9.2.0",
-		"tailwindcss": "^4.1.8"
+		"tailwindcss": "^4.1.8",
+		"zod": "^3.25.55"
 	}
 }
