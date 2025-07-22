@@ -1,0 +1,72 @@
+---
+title: Pi Architecture
+description: A Redux-first UI architecture designed for AI-assisted development
+template: splash
+hero:
+  tagline: What if your application could write itself?
+  image:
+    file: ../../assets/houston.webp
+  actions:
+    - text: Get Started
+      link: /getting-started/quick-start/
+      icon: right-arrow
+    - text: View on GitHub
+      link: https://github.com/withastro/starlight
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## A UI architecture built for AI
+
+**Pi** isn't a framework. It's not a library. It's a set of strict conventions—simple, declarative, and transparent—designed so that AI systems can understand, generate, test, and debug their own code.
+
+### How? By being honest.
+
+Routes are plain data. Components are pure. Side-effects are pulled out of the UI and placed into lifecycle-aware middleware owned by each feature. Every piece of behaviour is explicit and predictable.
+
+<CardGrid stagger>
+  <Card title="Redux-First Design" icon="rocket">
+    All state, navigation, and side-effects flow through Redux. Routes are Redux state. Modals are Redux state. This creates a serializable, inspectable, replayable application lifecycle.
+  </Card>
+  
+  <Card title="AI-Friendly Development" icon="laptop">
+    Because navigation, state, and effects are observable and deterministic, AI agents can dispatch events, wait for state updates, inspect logs, and adjust their next steps accordingly.
+  </Card>
+  
+  <Card title="Type-Safe Navigation" icon="setting">
+    Compile-time route validation with automatic parameter extraction and type checking. Invalid routes and missing parameters are caught at build time.
+  </Card>
+  
+  <Card title="Pure Components" icon="puzzle">
+    React components are pure render functions. No hooks for data fetching, no local state management—just props in, JSX out.
+  </Card>
+</CardGrid>
+
+## 🔁 A Feedback Loop for Machines
+
+Agentic systems—like Claude, Code Interpreter, or future autonomous development agents—thrive on feedback. They don't just generate code. They test it. They observe it. They reason over the results and adapt their plans.
+
+Pi makes this loop seamless by providing:
+
+- **Serializable navigation state** that can be inspected and replayed
+- **Deterministic side-effects** triggered by Redux actions
+- **Observable application lifecycle** through middleware hooks
+- **Predictable error boundaries** with explicit failure states
+
+## Get Started
+
+<CardGrid>
+  <Card title="Quick Start" icon="open-book">
+    Get up and running with Pi in minutes. Learn the core concepts and build your first Pi application.
+    
+    [Quick Start Guide →](/getting-started/quick-start/)
+  </Card>
+  
+  <Card title="Architecture Overview" icon="information">
+    Understand the principles behind Pi and how Redux becomes your application runtime.
+    
+    [Learn the Architecture →](/concepts/architecture/)
+  </Card>
+</CardGrid>

@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bun pi2:lint:*)",
+      "Bash(bun pi2:typecheck:*)",
+      "Bash(npx tsc:*)",
+      "Bash(bun pi2:test)",
+      "Bash(bun test:*)",
+      "Bash(grep:*)",
+      "Bash(bun pi2:test:types)",
+      "Bash(bun pi2:verify-type-safety:*)",
+      "Bash(bun pi2:test:*)",
+      "Bash(cp:*)",
+      "Bash(mkdir:*)",
+      "Bash(find:*)",
+      "Bash(rg:*)",
+      "Bash(mv:*)",
+      "Bash(npm run:*)",
+      "Bash(bun --cwd /Users/andy/dev/pi2/packages/pi test)"
+    ],
+    "deny": []
+  }
+}

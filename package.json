@@ -1,14 +1,39 @@
 {
-  "name": "bun-playground",
-  "license": "ISC",
-  "type": "module",
-  "scripts": {
-    "cli:start": "bun run --cwd apps/cli start"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^1.8.2",
-    "@types/bun": "^1.1.5"
-  },
-  "workspaces": ["apps/*", "packages/*"],
-  "dependencies": {}
+	"name": "bun-playground",
+	"license": "ISC",
+	"type": "module",
+	"scripts": {
+		"cli:start": "bun run --cwd apps/cli start",
+		"pi:lint": "bun run --cwd packages/pi lint",
+		"pi:typecheck": "bun run --cwd packages/pi typecheck",
+		"pi:typecheck:strict": "bun run --cwd packages/pi typecheck:strict",
+		"pi:test": "bun run --cwd packages/pi test",
+		"pi:test:types": "bun run --cwd packages/pi test:types",
+		"pi:verify-type-safety": "bun run --cwd packages/pi verify-type-safety",
+		"docs:dev": "bun run --cwd apps/docs dev",
+		"docs:start": "bun run --cwd apps/docs start",
+		"docs:build": "bun run --cwd apps/docs build",
+		"docs:preview": "bun run --cwd apps/docs preview",
+		"docs:astro": "bun run --cwd apps/docs astro",
+		"docs:deploy": "bun run --cwd apps/docs deploy",
+		"docs:cf-typegen": "bun run --cwd apps/docs cf-typegen"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.8.2",
+		"@types/bun": "^1.1.5",
+		"@types/node": "^20.12.14",
+		"wrangler": "^4.25.0"
+	},
+	"workspaces": ["apps/*", "packages/*"],
+	"dependencies": {
+		"@reduxjs/toolkit": "^2.8.2",
+		"path-to-regexp": "^8.2.0",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"typescript": "^5.8.3",
+		"@astrojs/cloudflare": "^12.6.0",
+		"@astrojs/starlight": "^0.35.1",
+		"astro": "^5.6.1",
+		"sharp": "^0.34.2"
+	}
 }

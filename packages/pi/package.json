@@ -1,0 +1,12 @@
+{
+	"name": "pi",
+	"scripts": {
+		"lint": "biome lint --write ./src",
+		"typecheck": "tsc",
+		"typecheck:strict": "tsc --noEmit --strict",
+		"typecheck:fail-test": "tsc --noEmit src/type-safety-fail.test.ts",
+		"test": "bun test",
+		"test:types": "bun test type-safety.test.ts",
+		"verify-type-safety": "npm run typecheck && npm run test:types && echo 'Type safety verification: PASSED' || echo 'Type safety verification: FAILED'"
+	}
+}

@@ -1,44 +1,58 @@
-# Bun Playground
+# What if your application could write itself?
 
-Welcome to Bun Playground, a starter kit designed for developers looking to explore Bun, the incredibly fast JavaScript runtime, bundler, test runner, and package manager all in one. This starter kit simplifies the process of setting up a Bun project, complete with a pre-configured environment for Biome, and IDE setups for both Visual Studio Code (VSCode) and Zed.
+Not entirely — not yet — but we are closer than you think.
 
-## Features
+## Introducing **Pi**
 
-- Bun: It's fast.
-- Biome Linter/Editor: Simple code formatting and linting.
-- IDE Support: Pre-configured settings for VSCode and Zed to get you up and running with no hassle.
-- Simple Setup: A minimalistic approach to get you started with Bun without the overhead.
+An architecture built not merely for developers, but for AI.
 
-## Installation
+Pi is neither a framework nor a library. It is a set of **strict conventions** — simple, declarative, and transparent — designed so that AI systems can understand, generate, test, and debug their own code.
 
-To get started with Bun Playground, clone this repository:
+### How? By being honest
 
-```bash
-git clone https://github.com/andyjessop/bun-playground.git
-```
+- **Routes** are plain data.
+- **Components** are pure.
+- **Side‑effects** are extracted from the UI and placed into lifecycle‑aware middleware owned by each feature.
+- Every piece of behaviour is explicit and predictable.
 
-After cloning, navigate into the project directory and install the necessary dependencies:
+This rigour enables something far more powerful.
 
-```bash
-cd bun-playground
-bun install
-```
+### 🔁 A feedback loop for machines
 
-## IDE Setup
+Agentic systems — such as Claude, Code Interpreter, and future autonomous development agents — thrive on feedback. They do not simply generate code; they **test**, **observe**, **reason**, and **adapt**.
 
-### Visual Studio Code (VSCode)
+Because navigation, state, and effects in Pi are all **observable** and **deterministic**, an AI agent can:
 
-Ensure you have the official Biome extension installed for linting and formatting.
-The .vscode directory contains pre-configured settings for Bun and Biome.
+1. Dispatch a navigation event.
+2. Wait for state to update.
+3. Inspect logs and error boundaries.
+4. Adjust its next step accordingly.
 
-### Zed
+Integration tests become conversation; debug sessions become planning phases. The architecture itself becomes the feedback loop, tailored to how machines learn — not to how humans pretend they do not make mistakes.
 
-Zed automatically recognizes the .zed configuration file for Bun and Biome settings.
+Pi is not a playground for AI. It is a runtime AI can reason about.
 
-### Usage
+### 🔄 But what makes that possible?
 
-```bash
-bun serve
-```
+At the heart of Pi is **Redux** — but not Redux as you have seen it before.
 
-This will run the `src/index.ts` file.
+In Pi, Redux is **the application runtime**:
+
+- All state, navigation, and behaviour flow through Redux.
+- Routes are Redux state.
+- Modals are Redux state.
+- Side‑effects are triggered by Redux actions.
+
+This is not dogma; it is infrastructure. Redux provides a **serialised, inspectable, replayable, and testable** application lifecycle — exactly what AI systems require to operate autonomously.
+
+Pi gives Redux clear conventions and context; Redux gives Pi a perfect **audit trail**. Together, they form a system that is not merely understandable but **operationally transparent**.
+
+---
+
+## In summary
+
+**Pi** is a UI architecture designed not just for humans, but for the next generation of developers: machines that can read logs, plan actions, test assumptions, and write code better with every loop.
+
+Pi is not only how we build applications; it is how we build **applications that can build themselves**.
+
+Thank you.
