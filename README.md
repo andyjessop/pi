@@ -54,5 +54,3 @@ Pi gives Redux clear conventions and context; Redux gives Pi a perfect **audit t
 **Pi** is a UI architecture designed not just for humans, but for the next generation of developers: machines that can read logs, plan actions, test assumptions, and write code better with every loop.
 
 Pi is not only how we build applications; it is how we build **applications that can build themselves**.
-
-Thank you.
