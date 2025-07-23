@@ -16,7 +16,11 @@
       "Bash(rg:*)",
       "Bash(mv:*)",
       "Bash(npm run:*)",
-      "Bash(bun --cwd /Users/andy/dev/pi2/packages/pi test)"
+      "Bash(bun --cwd /Users/andy/dev/pi2/packages/pi test)",
+      "Bash(bun run:*)",
+      "Bash(bun form:lint:*)",
+      "Bash(bun form:typecheck:*)",
+      "Bash(bun form:test:*)"
     ],
     "deny": []
   }

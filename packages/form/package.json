@@ -1,0 +1,8 @@
+{
+	"name": "form",
+	"scripts": {
+		"lint": "biome lint --write ./src",
+		"typecheck": "tsc",
+		"test": "bun test"
+	}
+}

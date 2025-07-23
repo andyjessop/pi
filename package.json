@@ -4,6 +4,9 @@
 	"type": "module",
 	"scripts": {
 		"cli:start": "bun run --cwd apps/cli start",
+		"form:lint": "bun run --cwd packages/form lint",
+		"form:typecheck": "bun run --cwd packages/form typecheck",
+		"form:test": "bun run --cwd packages/form test",
 		"pi:lint": "bun run --cwd packages/pi lint",
 		"pi:typecheck": "bun run --cwd packages/pi typecheck",
 		"pi:typecheck:strict": "bun run --cwd packages/pi typecheck:strict",
